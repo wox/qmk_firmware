@@ -1,5 +1,7 @@
 #include "oneshot.h"
 
+uint16_t oneshot_timer = 0;
+
 void update_oneshot(
     oneshot_state *state,
     uint16_t mod,
@@ -14,12 +16,18 @@ void update_oneshot(
                 register_code(mod);
             }
             *state = os_down_unused;
+            oneshot_timer = timer_read();
         } else {
             // Trigger keyup
             switch (*state) {
             case os_down_unused:
                 // If we didn't use the mod while trigger was held, queue it.
-                *state = os_up_queued;
+                if (timer_elapsed(oneshot_timer ) < 500) { // todo: per mod
+                    *state = os_up_queued;
+                } else {
+                    *state = os_up_unqueued;
+                    unregister_code(mod);
+                }
                 break;
             case os_down_used:
                 // If we did use the mod while trigger was held, unregister it.
