@@ -31,7 +31,7 @@ oneshot_state os_ctrl_state = os_up_unqueued;
 oneshot_state os_alt_state = os_up_unqueued;
 oneshot_state os_cmd_state = os_up_unqueued;
 
-uint16_t timer = 0;
+uint16_t retro_tapping_timer = 0;
 
 void update_oneshots(
     uint16_t keycode,
@@ -59,18 +59,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       // retro tapping with timeouts
     if (record->event.pressed) {
         switch (keycode) {
-        case LA_OS:
-        case LA_NAV:
-        case LA_NUM:
-        case LA_SYM:
-        case LA_DEV:
-            timer = timer_read();
-            break;
-        default:
-            timer = 0;
+            case LA_OS:
+            case LA_NAV:
+            case LA_NUM:
+            case LA_SYM:
+            case LA_DEV:
+                retro_tapping_timer = timer_read();
+                break;
+            default:
+                retro_tapping_timer = 0;
         }
     } else {
-        if (timer_elapsed(timer) < ONESHOT_TIMEOUT) {
+        if (timer_elapsed(retro_tapping_timer) < RETRO_TAPPING_TIMEOUT) {
             switch (keycode) {
             case LA_OS:
                 tap_code(KC_ESC);
@@ -80,11 +80,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_TAB);
                 update_oneshots(KC_TAB, record);
                 break;
-             case LA_SYM:
+            case LA_SYM:
                 tap_code(KC_BSPC);
                 update_oneshots(KC_BSPC, record);
                 break;
-             case LA_NUM:
+            case LA_NUM:
                 tap_code(KC_ENT);
                 update_oneshots(KC_ENT, record);
                 break;

@@ -3,7 +3,7 @@
 #include "quantum.h"
 #include "oneshot.h"
 
-#define ONESHOT_TIMEOUT 500
+#define RETRO_TAPPING_TIMEOUT 500
 
 #define LA_NAV MO(1)
 #define LA_NUM MO(2)
