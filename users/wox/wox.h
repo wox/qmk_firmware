@@ -11,9 +11,9 @@
 #define LA_DEV MO(4)
 #define LA_SYM MO(5)
 
-#define SWE_AA LALT(KC_A)
-#define SWE_AE LALT(KC_Q)
-#define SWE_OO LALT(KC_O)
+#define SWE_AA ALGR(KC_W)
+#define SWE_AE ALGR(KC_A)
+#define SWE_OO ALGR(KC_O)
 
 #define SPACE MT(MOD_LGUI, KC_SPC)
 
@@ -31,7 +31,7 @@ enum keycodes {
     OS_CTRL,
     OS_ALT,
     OS_CMD,
-    OS_CANCEL,
+    OS_CANCEL
 };
 
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);

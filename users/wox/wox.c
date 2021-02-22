@@ -56,7 +56,7 @@ void update_oneshots(
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-      // retro tapping with timeouts
+    // retro tapping with timeouts
     if (record->event.pressed) {
         switch (keycode) {
             case LA_OS:
