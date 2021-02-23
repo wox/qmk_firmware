@@ -10,6 +10,7 @@
 #define LA_OS MO(3)
 #define LA_DEV MO(4)
 #define LA_SYM MO(5)
+#define LA_SYMRAISE MO(6)
 
 #define SWE_AA ALGR(KC_W)
 #define SWE_AE ALGR(KC_A)
@@ -24,6 +25,7 @@ enum layers {
     _OS,
     _DEV,
     _SYM,
+    _SYMRAISE,
 };
 
 enum keycodes {
@@ -68,16 +70,23 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
     ), \
  \
     [_DEV] = MYLAYOUT( \
-    KC_NO, A(S(KC_F2)),   A(KC_F2),      C(S(KC_N)), KC_NO,        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO, \
-    KC_NO, LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(KC_B), LGUI(KC_N),   KC_NO, KC_RPRN, KC_RCBR, KC_RBRC, KC_NO, \
-    KC_NO, KC_NO,         KC_NO,         A(G(KC_B)), KC_NO,        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO, \
-                          KC_NO,         KC_NO,      KC_NO,        KC_NO, KC_NO,   KC_NO \
+    KC_NO, A(S(KC_F2)),   A(KC_F2),      C(S(KC_N)), KC_NO,        KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, \
+    KC_NO, LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(KC_B), LGUI(KC_N),   KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, \
+    KC_NO, KC_NO,         KC_NO,         A(G(KC_B)), KC_NO,        KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, \
+                          KC_NO,         KC_NO,      KC_NO,        KC_NO, KC_NO,  KC_NO \
     ), \
  \
     [_SYM] = MYLAYOUT( \
-    KC_DLR,  KC_PLUS, KC_MINS, KC_GT,   KC_QUES,     KC_BSLS, KC_GRV,  KC_DQUO, KC_QUOT, KC_HASH, \
-    KC_AT,   KC_LBRC, KC_LCBR, KC_LPRN, KC_EXLM,     KC_SLSH, KC_DOT,  KC_COLN, KC_EQL,  KC_PIPE, \
-    KC_TILD, KC_PERC, KC_UNDS, KC_LT,   KC_CIRC,     KC_NO,   KC_COMM, KC_SCLN, KC_ASTR, KC_AMPR, \
-                      KC_NO,   KC_SPC,  KC_TAB,      KC_NO,   KC_NO,   KC_NO \
+    KC_DLR,  KC_PLUS, KC_MINS,     KC_GT,   KC_QUES,     KC_BSLS, KC_GRV,  KC_DQUO, KC_QUOT, KC_HASH, \
+    KC_AT,   KC_LBRC, KC_LCBR,     KC_LPRN, KC_EXLM,     KC_SLSH, KC_DOT,  KC_COLN, KC_EQL,  KC_PIPE, \
+    KC_TILD, KC_PERC, KC_UNDS,     KC_LT,   KC_CIRC,     KC_NO,   KC_COMM, KC_SCLN, KC_ASTR, KC_AMPR, \
+                      LA_SYMRAISE, KC_SPC,  KC_TAB,      KC_NO,   KC_NO,   KC_NO \
+    ), \
+\
+    [_SYMRAISE] = MYLAYOUT( \
+    KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+    KC_NO, KC_RBRC, KC_RCBR, KC_RPRN, KC_NO,     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+    KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+                    KC_NO,   KC_NO,   KC_NO,     KC_NO, KC_NO, KC_NO \
     ), \
 };
