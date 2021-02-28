@@ -46,3 +46,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 #define OLED_FONT_H "keyboards/crkbd/keymaps/soundmonster/glcdfont.c"
+
+#define WOX_LAYOUT LAYOUT_split_3x5_3

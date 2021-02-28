@@ -16,12 +16,8 @@
 
 #pragma once
 
- // #define TAPPING_TERM 0
-// #define TAPPING_FORCE_HOLD
-// #define RETRO_TAPPING
-
-// #define PERMISSIVE_HOLD
-// #define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM 200
+#define IGNORE_MOD_TAP_INTERRUPT
 
 #ifdef OLED_DRIVER_ENABLE
   #define OLED_DISPLAY_128X64
@@ -38,3 +34,20 @@
 // If you are using an Elite C rev3 on the slave side, uncomment the lines below:
 // #define SPLIT_USB_DETECT
 // #define NO_USB_STARTUP_CHECK
+
+#define WOX_LAYOUT( \
+    L01, L02, L03, L04, L05,                R06, R07, R08, R09, R10, \
+    L13, L14, L15, L16, L17,                R18, R19, R20, R21, R22, \
+    L25, L26, L27, L28, L29,                R34, R35, R36, R37, R38, \
+                   L41, L42, L43,      R46, R47, R48 \
+) \
+{ \
+    { KC_NO, KC_NO, L05,   L04,   L03,   L02,   L01,   KC_NO   }, \
+    { KC_NO, KC_NO, L17,   L16,   L15,   L14,   L13,   KC_NO   }, \
+    { KC_NO, KC_NO, L29,   L28,   L27,   L26,   L25,   KC_NO   }, \
+    { KC_NO, L43,   L42,   L41,   KC_NO, KC_NO, KC_NO, KC_NO }, \
+    { KC_NO, KC_NO, R06,   R07,   R08,   R09,   R10,   KC_NO   }, \
+    { KC_NO, KC_NO, R18,   R19,   R20,   R21,   R22,   KC_NO   }, \
+    { KC_NO, KC_NO, R34,   R35,   R36,   R37,   R38,   KC_NO   }, \
+    { KC_NO, R46,   R47,   R48,   KC_NO, KC_NO, KC_NO, KC_NO }, \
+}
