@@ -16,6 +16,8 @@
 
 #pragma once
 
+
+
 #define TAPPING_TERM 200
 #define IGNORE_MOD_TAP_INTERRUPT
 
@@ -51,3 +53,6 @@
     { KC_NO, KC_NO, R34,   R35,   R36,   R37,   R38,   KC_NO   }, \
     { KC_NO, R46,   R47,   R48,   KC_NO, KC_NO, KC_NO, KC_NO }, \
 }
+
+#define MATRIX_MASKED
+
