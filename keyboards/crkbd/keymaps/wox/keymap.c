@@ -214,8 +214,8 @@ void oled_task_user(void) {
     render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
     render_space();
     oled_render_layer_state();
-    oled_render_keylog();
-    render_space();
+    // oled_render_keylog();
+    // render_space();
 }
 
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
