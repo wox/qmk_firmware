@@ -73,24 +73,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (timer_elapsed(retro_tapping_timer) < RETRO_TAPPING_TIMEOUT) {
             switch (keycode) {
             case LA_OS:
-                tap_code(KC_ESC);
-                update_oneshots(KC_ESC, record);
+                tap_code(KC_Z);
+                update_oneshots(KC_Z, record);
                 break;
             case LA_NAV:
-                tap_code(KC_TAB);
-                update_oneshots(KC_TAB, record);
+                tap_code(KC_ENT);
+                update_oneshots(KC_ENT, record);
                 break;
             case LA_SYM:
                 tap_code(KC_BSPC);
                 update_oneshots(KC_BSPC, record);
                 break;
             case LA_NUM:
-                tap_code(KC_ENT);
-                update_oneshots(KC_ENT, record);
+                tap_code(KC_TAB);
+                update_oneshots(KC_TAB, record);
                 break;
             case LA_DEV:
-                tap_code(KC_DEL);
-                update_oneshots(KC_DEL, record);
+                register_code(KC_LALT);
+                tap_code(KC_O);
+                unregister_code(KC_LALT);
+                update_oneshots(KC_O, record);
                 break;
             }
         }
