@@ -56,10 +56,10 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
     ), \
  \
     [_NUM] = WOX_LAYOUT( \
-    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,       KC_F6,   KC_F7,    KC_F8,  KC_F9,   KC_F10,  \
-    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,        KC_6,    KC_7,     KC_8,   KC_9,    KC_0,    \
-    KC_F11,  KC_F12,  KC_PLUS, KC_MINS, KC_ASTR,     KC_SLSH, OS_SHFT,  OS_CMD, OS_ALT,  OS_CTRL, \
-                      KC_DOT,  KC_COMM, KC_TAB,      KC_NO,  KC_NO,     KC_NO \
+    KC_ASTR,  KC_7,  KC_8,   KC_9,    KC_F11,      KC_F1,   KC_F2,    KC_F3,   KC_F4,   KC_F5,  \
+    KC_0,     KC_4,  KC_5,   KC_6,    KC_F12,      KC_SLSH, OS_SHFT,  OS_CMD,  OS_ALT,  OS_CTRL,    \
+    KC_PLUS,  KC_1,  KC_2,   KC_3,    KC_MINS,     KC_F6,   KC_F7,    KC_F8,   KC_F9,   KC_F10, \
+                     KC_DOT, KC_COMM, KC_TAB,      KC_NO,   KC_NO,    KC_NO \
     ), \
  \
     [_OS] = WOX_LAYOUT( \
