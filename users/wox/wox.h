@@ -37,8 +37,8 @@ enum keycodes {
 #define LAUNCH LGUI(KC_SPC)
 
 #define SPACE MT(MOD_LGUI, KC_SPC)
-#define ESC MT(MOD_LALT, KC_ESC)
-#define DEL MT(MOD_LCTL, KC_DEL)
+#define ESC MT(MOD_LCTL, KC_ESC)
+#define DEL MT(MOD_LALT, KC_DEL)
 
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 
@@ -53,7 +53,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
     [_NAV] = WOX_LAYOUT( \
     OS_CANCEL,  KC_NO,      KC_SPC,     KC_ESC,     KC_DEL,     KC_NO,   KC_PGDN, KC_UP,   KC_PGUP, KC_NO,  \
     OS_CTRL,    OS_ALT,     OS_CMD,     OS_SHFT,    KC_ENT,     KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, \
-    LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_BSPC,    LAUNCH,  KC_NO,   KC_NO,   KC_NO,   KC_NO,  \
+    LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_BSPC,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  \
                             KC_NO,      KC_NO,      KC_NO,      KC_TAB,  KC_BSPC, KC_DEL \
     ), \
  \
@@ -72,10 +72,10 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
     ), \
  \
     [_DEV] = WOX_LAYOUT( \
-    KC_NO, A(S(KC_F2)),   A(KC_F2),      C(S(KC_N)), KC_NO,        KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, \
-    KC_NO, LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(KC_B), LGUI(KC_N),   KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, \
-    KC_NO, KC_NO,         KC_NO,         A(G(KC_B)), KC_NO,        KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, \
-                          KC_NO,         KC_NO,      KC_NO,        KC_NO, KC_NO,  KC_NO \
+    KC_NO, A(S(KC_F2)),   A(KC_F2),      C(S(KC_N)),   KC_NO,          HYPR(KC_F8),  HYPR(KC_F4),  HYPR(KC_F12), KC_NO,       KC_NO, \
+    KC_NO, LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(KC_B),   LGUI(KC_N),     HYPR(KC_F),   HYPR(KC_I),   HYPR(KC_F5),  HYPR(KC_F6), KC_NO, \
+    KC_NO, KC_NO,         KC_NO,         A(G(KC_B)),   KC_NO,          HYPR(KC_F7),  HYPR(KC_F10), HYPR(KC_F11), HYPR(KC_F9), KC_NO, \
+                          KC_NO,         LGUI(KC_F12), KC_NO,          HYPR(KC_SPC), LAUNCH,       HYPR(KC_A) \
     ), \
  \
     [_SYM] = WOX_LAYOUT( \
